@@ -43,7 +43,13 @@ if (isValidType(type1) === false || isValidType(type2) === false) {
 
   if (val1 <= 0 || val2 <= 0) { return "Значення повинні бути додатними"; }
 
-  if (leg !== null && hyp !== null) {
+ if (type1 === "leg" && type2 === "leg") {
+  a = val1;
+  b = val2;
+  c = Math.sqrt(a ** 2 + b ** 2);
+  alpha = toDeg(Math.atan(a / b));
+  beta = 90 - alpha;
+}else if (leg !== null && hyp !== null) {
     if (leg >= hyp) { return "Катет не може бути більшим або рівним гіпотенузі"; }
     a = leg;
     c = hyp;
@@ -51,7 +57,7 @@ if (isValidType(type1) === false || isValidType(type2) === false) {
     alpha = toDeg(Math.asin(a / c));
     beta = 90 - alpha;
   } else if (leg !== null && oppAngle !== null) {
-    if (oppAngle <= 0 || oppAngle >= 90) {
+    if (oppAngle <= 0.0000001 || oppAngle >= 89.9999999) {
       return "К ут має бути гострим (0–90°)";
     }
     a = leg;
@@ -61,7 +67,7 @@ if (isValidType(type1) === false || isValidType(type2) === false) {
     b = a / Math.tan(toRad(alpha));
 
   } else if (leg !== null && adjAngle !== null) {
-    if (adjAngle <= 0 || adjAngle >= 90) {
+    if (adjAngle <= 0.0000001 || adjAngle >= 89.9999999) {
       return "Кут має бути гострим (0–90°)";
     }
     a = leg;
@@ -71,7 +77,7 @@ if (isValidType(type1) === false || isValidType(type2) === false) {
     b = a / Math.tan(toRad(alpha));
 
   } else if (hyp !== null && angle !== null) {
-    if (angle <= 0 || angle >= 90) {
+    if (angle <= 0.0000001 || angle >= 89.9999999) {
       return "Кут має бути гострим (0–90°)";
     }
     c = hyp;
