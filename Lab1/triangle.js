@@ -98,5 +98,12 @@ if (isValidType(type1) === false || isValidType(type2) === false) {
   return "success";
 }
 
+triangle(3, "leg", 4, "leg");
+
 triangle(4, "leg", 8, "hypotenuse");
+
 triangle(60, "opposite angle", 5, "leg");
+
+triangle(5, "leg", 60, "adjacent angle");
+
+triangle(10, "hypotenuse", 30, "angle");
