@@ -295,7 +295,7 @@ function Painter(color) {
         } else {
             console.log("No 'type' property occurred!");
         }
-    };
+    }
 }
 
 //завдання 1.2.30
