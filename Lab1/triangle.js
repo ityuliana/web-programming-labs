@@ -45,7 +45,15 @@ if (typeof val1 !== "number" || typeof val2 !== "number" || isNaN(val1) || isNaN
     return "Некоректні дані: значення мають бути числами";
   }
 
-  if (val1 <= 0 || val2 <= 0) { return "Значення повинні бути додатними"; }
+  if (leg !== null && leg <= 0.0000001) {
+    return "Катет повинен бути більшим за 0";
+}
+
+if (hyp !== null && hyp <= 0.0000001) {
+    return "Гіпотенуза повинна бути більшою за 0";
+}
+ 
+  //if (val1 <= 0 || val2 <= 0) { return "Значення повинні бути додатними"; }
 
  if (type1 === "leg" && type2 === "leg") {
   a = val1;
