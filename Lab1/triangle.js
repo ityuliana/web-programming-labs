@@ -40,6 +40,10 @@ if (isValidType(type1) === false || isValidType(type2) === false) {
   let adjAngle = getValue("adjacent angle");
 
   let a, b, c, alpha, beta;
+ 
+if (typeof val1 !== "number" || typeof val2 !== "number" || isNaN(val1) || isNaN(val2)) {
+    return "Некоректні дані: значення мають бути числами";
+  }
 
   if (val1 <= 0 || val2 <= 0) { return "Значення повинні бути додатними"; }
 
