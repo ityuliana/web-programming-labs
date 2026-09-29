@@ -1,54 +1,79 @@
-//варіант 2
-function triangle(base = 7, height = 3){
-   return (base * height)/2;
+//ВАРІАНТ 2
+//завдання 4(площі трикутника)
+function TriangleArea(base = 7, height = 3) {
+   const area = (base * height) / 2;
+   console.log(area);
+   return area;
 }
 
-console.log(triangle());
-console.log(triangle(3,6));
+TriangleArea();
+TriangleArea(3, 6);
 
-function Boat(color, maxSpeed, max_tonnage, brand, country){
+//завдання 5
+function Boat(color, maxSpeed, maxTonnage, brand, countryOfRegistration) {
    this.color = color;
-   this.maxSpeed = maxSpeed; 
-   this.max_tonnagr = max_tonnage;
+   this.maxSpeed = maxSpeed;
+   this.maxTonnage = maxTonnage;
    this.brand = brand;
-   this.country = country; 
+   this.countryOfRegistration = countryOfRegistration;
 }
 
-Boat.prototype.AssignCaptain = function(name, years_of_exper, hasFamily){
+Boat.prototype.AssignCaptain = function (name, yearsOfExperience, hasFamily) {
    this.captain = {
-      name: name;
-      years_of_exper: years_of_exper;
-      hasFamily: hasFamily;
+      name: name,
+      yearsOfExperience: yearsOfExperience,
+      hasFamily: hasFamily
+   };
 };
-};
-
 
 const boat = new Boat("White", 42.5, 300, "Bbbb", "Ukraine");
-boat.AssignCaptain("Ivan", 12.5, true);
+boat.AssignCaptain("Ivan Petrenko", 12, true);
 console.log("Boat:", boat);
 
-class SimpleCircle{
-   constructor(majorRadius)
-   this._majorRadius = majorRadius;
+//завдання 6(коло)
+class SimpleCircle {
+   constructor(majorRadius) {
+      this._majorRadius = majorRadius;
+   }
 
-   get majorRadius{
+   get majorRadius() {
       return this._majorRadius;
    }
 
-set majorRadius(value){
-   this._majorRadius = value;
-}
+   set majorRadius(value) {
+      this._majorRadius = value;
+   }
 }
 
-class SimpleEllipse extends SimpleCircle{
-   constructor(majorRadius, minorRadius);
-      super(majorRadius); 
-      this.minorRadius;
+class SimpleEllipse extends SimpleCircle {
+   constructor(majorRadius, minorRadius) {
+      super(majorRadius);
+      this.minorRadius = minorRadius;
+   }
 
-   static area(ellipse){
+   static area(ellipse) {
       return Math.PI * ellipse.majorRadius * ellipse.minorRadius;
    }
 }
 
 const circle = new SimpleCircle(5);
-console.log("SimpleCircle": 
+console.log("SimpleCircle:", circle);
+circle.majorRadius = 8;
+console.log("SimpleCircle після сеттера:", circle);
+
+const ellipse = new SimpleEllipse(6, 4);
+console.log("SimpleEllipse:", ellipse);
+console.log("Площа еліпса:", SimpleEllipse.area(ellipse));
+
+//завдання 7
+function SubGenerator(n) {
+   return function (x) {
+      return x - n;
+   };
+}
+
+const sub5 = SubGenerator(5);
+const sub2_5 = SubGenerator(2.5);
+
+console.log("sub5(20) =", sub5(20));
+console.log("sub2_5(10) =", sub2_5(10));
