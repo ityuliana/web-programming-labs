@@ -16,7 +16,6 @@ function demo(arr) {
     }
 }
 
-
 print("\nНерозріджений масив\n");
 let arr = [];
 for (let i = 0; i < 120; i++) {
